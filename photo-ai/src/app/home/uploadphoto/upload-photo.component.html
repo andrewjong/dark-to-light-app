@@ -1,0 +1,8 @@
+<img [src]="url" height="500" *ngIf="url !== ''"> <br/>
+
+<input
+  style="display: none"
+  type="file" name="pic" accept="image/*" (change)="onSelectFile($event)"
+  #fileInput>
+<button pButton type="button" label="Select file" (click)="fileInput.click()"></button>
+<a [href]="url" download target="_self" pButton type="button" *ngIf="url !==''" label="Download"></a>

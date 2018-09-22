@@ -10,13 +10,13 @@ import {FormsModule} from "@angular/forms";
 import {TableModule} from "primeng/table";
 import {HttpClientModule} from "@angular/common/http";
 import {ButtonModule, DialogModule, InputTextModule} from "primeng/primeng";
-import {ImageViewComponent} from './home/imageview/image-view.component';
+import {UploadPhotoComponent} from './home/uploadphoto/upload-photo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ImageViewComponent,
+    UploadPhotoComponent,
   ],
   imports: [
     BrowserModule,
