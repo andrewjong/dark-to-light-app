@@ -9,7 +9,7 @@ import {HomeComponent} from './home/home.component';
 import {FormsModule} from "@angular/forms";
 import {TableModule} from "primeng/table";
 import {HttpClientModule} from "@angular/common/http";
-import {ButtonModule, DialogModule, InputTextModule} from "primeng/primeng";
+import {ButtonModule, DialogModule, InputTextModule, ToolbarModule} from "primeng/primeng";
 import {UploadPhotoComponent} from './home/uploadphoto/upload-photo.component';
 import {WebcamModule} from "ngx-webcam";
 
@@ -20,6 +20,7 @@ import {WebcamModule} from "ngx-webcam";
     UploadPhotoComponent,
   ],
   imports: [
+    ToolbarModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,

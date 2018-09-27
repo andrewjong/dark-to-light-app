@@ -7,13 +7,17 @@
 <div class="snapshot" *ngIf="webcamImage">
   <img [src]="webcamImage.imageAsDataUrl"/>
 </div>
-<button pButton type="button" label="Select file" (click)="fileInput.click()"></button>
-<!--The download button-->
-<a [href]="url" download target="_self" pButton type="button" *ngIf="url !==''" label="Download"></a>
-<button pButton type="button" label="Use webcam" (click)="toggleWebcam()" *ngIf="!showWebcam"></button>
-<button pButton type="button" label="Stop webcam" (click)="toggleWebcam()" *ngIf="showWebcam"></button>
+<p-toolbar>
+  <div class="ui-toolbar-group-left">
+    <button pButton type="button" label="Select file" icon="pi pi-upload" (click)="fileInput.click()"></button>
+    <button pButton type="button" label="Use webcam" icon="pi pi-video" (click)="toggleWebcam()" *ngIf="!showWebcam"></button>
+    <button pButton type="button" label="Stop webcam" (click)="toggleWebcam()" *ngIf="showWebcam"></button>
+  </div>
+  <!--The download button-->
+  <a [href]="url" download target="_self" pButton type="button" class="ui-button-warning"  icon="pi pi-check" *ngIf="url !==''" label="Download" ></a>
+  <button pButton type="button" label="Take pic" class="ui-button-info" (click)="triggerSnapshot()" *ngIf="showWebcam"></button>
+</p-toolbar>
 <!--The webcam view-->
 <div *ngIf="showWebcam">
   <webcam [height]="600" [width]="600" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
-  <button pButton type="button" label="Take pic" (click)="triggerSnapshot()" *ngIf="showWebcam"></button>
 </div>

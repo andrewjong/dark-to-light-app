@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {WebcamImage} from "ngx-webcam";
 
+
 @Component({
   selector: 'app-uploadphoto',
   templateUrl: './upload-photo.component.html',
