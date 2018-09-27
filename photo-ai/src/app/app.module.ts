@@ -11,6 +11,7 @@ import {TableModule} from "primeng/table";
 import {HttpClientModule} from "@angular/common/http";
 import {ButtonModule, DialogModule, InputTextModule} from "primeng/primeng";
 import {UploadPhotoComponent} from './home/uploadphoto/upload-photo.component';
+import {WebcamModule} from "ngx-webcam";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {UploadPhotoComponent} from './home/uploadphoto/upload-photo.component';
     InputTextModule,
     DialogModule,
     ButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    WebcamModule
   ],
   exports: [RouterModule],
   providers: [],

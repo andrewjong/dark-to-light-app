@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable, Subject} from "rxjs";
+import {WebcamImage} from "ngx-webcam";
 
 @Component({
   selector: 'app-uploadphoto',
@@ -7,11 +9,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UploadPhotoComponent implements OnInit {
   url:string = '';
+  showWebcam: boolean = false;
+  public webcamImage: WebcamImage = null;
+  private trigger: Subject<void> = new Subject<void>();
 
   constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSelectFile(event) { // called each time file input changes
     if (event.target.files && event.target.files[0]) {
@@ -21,5 +24,21 @@ export class UploadPhotoComponent implements OnInit {
         this.url = event.target.result;
       }
     }
+  }
+
+  toggleWebcam() {
+    this.showWebcam = !this.showWebcam
+  }
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+    this.showWebcam = !this.showWebcam;
+  }
+  public handleImage(webcamImage: WebcamImage): void {
+    this.url = webcamImage.imageAsDataUrl
   }
 }

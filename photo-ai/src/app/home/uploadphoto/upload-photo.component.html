@@ -4,5 +4,16 @@
   style="display: none"
   type="file" name="pic" accept="image/*" (change)="onSelectFile($event)"
   #fileInput>
+<div class="snapshot" *ngIf="webcamImage">
+  <img [src]="webcamImage.imageAsDataUrl"/>
+</div>
 <button pButton type="button" label="Select file" (click)="fileInput.click()"></button>
+<!--The download button-->
 <a [href]="url" download target="_self" pButton type="button" *ngIf="url !==''" label="Download"></a>
+<button pButton type="button" label="Use webcam" (click)="toggleWebcam()" *ngIf="!showWebcam"></button>
+<button pButton type="button" label="Stop webcam" (click)="toggleWebcam()" *ngIf="showWebcam"></button>
+<!--The webcam view-->
+<div *ngIf="showWebcam">
+  <webcam [height]="600" [width]="600" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+  <button pButton type="button" label="Take pic" (click)="triggerSnapshot()" *ngIf="showWebcam"></button>
+</div>
